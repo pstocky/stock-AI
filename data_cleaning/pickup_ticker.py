@@ -11,14 +11,16 @@ def load_ticker_list(filename):
         return {row.strip()[-7:-1]: row.strip()[:-8] for row in fr.readlines()}
 
 
+def scan(data_root, ticker):
+    return [os.path.join(dirpath, filename) for (dirpath, dirnames, filenames) in os.walk(data_root) for filename in filenames if ticker in filename]
+
+
 def main(data_path, ticker_list):
 
     tickers = load_ticker_list(ticker_list)
 
     for t, name in tickers.items():
-        print t, name
-
-    print os.listdir(data_path)
+        print len(scan(data_path, t))
 
 
 if __name__ == '__main__':
