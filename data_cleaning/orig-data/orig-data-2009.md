@@ -55,6 +55,25 @@ Extracting  Stk_Tick_200810/20081031/SZ399922_20081031.csv            OK
 All OK
 ```
 
+解压后文件夹大小，比 08 年的 87G 增加了很多。
+
+```bash
+jackon@gtx1080:~/data/stock/stock_tick_2009$ du -lh -d 1 .
+11G	./Stk_Tick_200903
+6.1G	./Stk_Tick_200901
+13G	./Stk_Tick_200912
+11G	./Stk_Tick_200902
+13G	./Stk_Tick_200908
+15G	./Stk_Tick_200911
+12G	./Stk_Tick_200904
+14G	./Stk_Tick_200907
+9.4G	./Stk_Tick_200905
+12G	./Stk_Tick_200906
+13G	./Stk_Tick_200909
+9.0G	./Stk_Tick_200910
+135G	.
+```
+
 人工 check 每一天的数据都存在。
 三两分钟就 check 完 1 年的数据，投入产出比还是比较高的。
 
