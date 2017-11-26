@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 
@@ -17,10 +18,12 @@ def load_all_open_days():
     return sorted(days)
 
 
-def load_open_days(begin, end):
-    all_days = load_all_open_days()
+_all_open_days = load_all_open_days()
 
-    return [d for d in all_days if d >= begin and d <= end]
+
+def load_open_days(begin, end):
+    return [d for d in _all_open_days if d >= begin and d <= end]
 
 
 # print load_open_days('20080204', '20080213')
+# print load_open_days('20080203', '20080213')
