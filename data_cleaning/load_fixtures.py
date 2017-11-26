@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import codecs
 
 
 FIXTURES_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data_fixture')
@@ -25,5 +26,13 @@ def load_open_days(begin, end):
     return [d for d in _all_open_days if d >= begin and d <= end]
 
 
-# print load_open_days('20080204', '20080213')
-# print load_open_days('20080203', '20080213')
+def load_ticker_list(filename, name_idx=0, ticker_idx=1):
+    data_file = os.path.join(FIXTURES_ROOT, filename)
+
+    tickers = {}
+    with codecs.open(data_file, 'r', encoding='utf8') as fr:
+        for row in fr.readlines():
+            r = row.strip().split(',')
+            tickers[r[ticker_idx]] = r[name_idx]
+
+        return tickers
